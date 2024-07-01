@@ -46,7 +46,9 @@ function BlogPages() {
           <ArrowBackIcon  onClick={() => navigate(-1) }/>
         </Grid>
         <Grid item xs={12} mt={6}></Grid>
-          <img src={post.coverPhoto.url} alt={post.slug} width='100%' style={{
+          <img src={post.coverPhoto.url} alt={post.slug}
+           width='70%' 
+           style={{
             borderRadius: 15 ,
           }}/>
           <Grid item xs={12} mt={7} display='flex' alignItems='center'>

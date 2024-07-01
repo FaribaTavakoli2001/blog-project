@@ -1,17 +1,19 @@
 import { useQuery } from '@apollo/client'
 import React from 'react'
 import { GET_AUTHOR_INFO } from '../../graphql/querys'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Avatar, Container, Grid, Typography } from '@mui/material'
 import sanitizeHtml  from 'sanitize-html'
 import CardEL from '../shared/CardEL'
 import { Circles } from 'react-loader-spinner'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 function AuthorPages() {
   const { slug } = useParams()
   const {loading ,  data , error} = useQuery(GET_AUTHOR_INFO , {
     variables: { slug },
   })
+  const navigate = useNavigate();
 
   if (loading) return <div style={{
     height:"1000px",
@@ -33,6 +35,10 @@ function AuthorPages() {
 
     <>
     <Container maxWidth='lg'>
+      <Grid item xs={12} >
+
+      </Grid>
+      
       <Grid container mt={10}>
         <Grid item xs={12} display='flex' flexDirection='column' alignItems='center'>
           <Avatar src={author.avatar.url}
